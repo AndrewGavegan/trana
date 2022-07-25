@@ -18,10 +18,12 @@ const exerciseSchema = new Schema({
     min: 0,
     max: 10
   },
-  muscles: {
-    type: String,
-    enum: ['chest', 'back', 'shoulders', 'hamstrings', 'quads', 'abs', 'biceps', 'triceps']
-  }
+  muscles: [
+    {
+      type: Schema.Type.ObjectId,
+      ref: Muscle
+    }
+  ]
 })
 
 const Exercise = mongoose.model('Exercise', exerciseSchema);
