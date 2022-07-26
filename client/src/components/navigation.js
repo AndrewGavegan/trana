@@ -1,15 +1,13 @@
-import React from "react";
+import React from 'react';
+import Button from 'react-bootstrap/Button';
 
-function Navigation({ currentPage, handlePageChange }) {
+function Navigation() {
   return (
     <div className="top-bar">
       <ul className="nav-list">
-        <button classname="btn btn-primary">
-          New Workout +
-        </button>
-        <li className="nav-list-item"><a href="#Dashboard" onClick={() => handlePageChange('Dashobard')} className={currentPage === 'Dashboard' ? 'nav-link active' : 'nav-link'}>
-          Dashboard
-        </a></li>
+        <li className="nav-list-item">
+          <Button variant='outline-success'>New Workout +</Button></li>
+        <li className="nav-list-item"><Button href="#Dashboard">Dashboard</Button></li>
       </ul>
     </div>
   );
