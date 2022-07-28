@@ -21,6 +21,25 @@ li {
   padding: 1vh 10vw 0 10vw;
 }
 
+.app {
+  text-align: center;
+  width: 100%;
+}
+
+.preview-values {
+  display: none;
+}
+
+
+
+.msl-wrp {
+  width: auto !important;
+}
+
+.msl-input {
+  z-index: -1 !important;
+}
+
 .nav-list {
   list-style-type: none;
   display: flex;

@@ -12,10 +12,10 @@ function Navigation({ currentPage, handlePageChange }) {
       <ul className="nav-list">
         <Popup />
         <li className="nav-list-item">
-          <Button href="#Dashboard" onClick={() => handlePageChange('Dashboard')} className={currentPage === 'Dashboard' ? 'nav-link active' : 'nav-link'} >Dashboard</Button>
+          <Button variant="outline-warning" href="#Main" onClick={() => handlePageChange('Main')} className={currentPage != 'Dashboard' ? 'nav-link active' : 'nav-link'} >Activity Feed</Button>
         </li>
         <li className="nav-list-item">
-          <Button href="#Main" onClick={() => handlePageChange('Main')} className={currentPage === 'Main' ? 'nav-link active' : 'nav-link'} >Activity Feed</Button>
+          <Button variant="outline-warning" href="#Dashboard" onClick={() => handlePageChange('Dashboard')} className={currentPage === 'Dashboard' ? 'nav-link active' : 'nav-link'} >Dashboard</Button>
         </li>
       </ul>
     </div>
