@@ -29,9 +29,15 @@ li {
 .nav-list-item {
   padding: 3px;
   margin-right: 10vw;
+  white-space: nowrap;
 }
 
 .main {
+  margin: 10vh 10vw 0vw 10vw !important;
+  width: 100%;
+}
+
+.dashboard {
   margin: 10vh 10vw 0vw 10vw !important;
   width: 100%;
 }

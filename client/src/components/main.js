@@ -1,19 +1,22 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import LeftSide from './pages/leftside';
-import RightSide from './pages/rightside';
+import LeftMain from './pages/leftmain';
+import RightMain from './pages/rightmain';
+import Feed from './pages/feed';
 
 function Content() {
   return (
     <Container className="main">
       <Row className="row">
         <Col xs={3} className="col">
-          <LeftSide />
+          <LeftMain />
         </Col>
-        <Col xs={7} className="col">2 of 3</Col>
+        <Col xs={7} className="col">
+          <Feed />
+        </Col>
         <Col xs={2} className="col">
-          <RightSide />
+          <RightMain />
         </Col>
       </Row>
     </Container>
