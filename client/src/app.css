@@ -28,10 +28,10 @@ li {
 
 .nav-list-item {
   padding: 3px;
-  margin-right: 12.25vw;
+  margin-right: 10vw;
 }
 
-.content {
+.main {
   margin: 10vh 10vw 0vw 10vw !important;
   width: 100%;
 }

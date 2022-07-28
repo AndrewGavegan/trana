@@ -6,7 +6,7 @@ import RightSide from './pages/rightside';
 
 function Content() {
   return (
-    <Container className="content">
+    <Container className="main">
       <Row className="row">
         <Col xs={3} className="col">
           <LeftSide />
