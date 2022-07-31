@@ -31,7 +31,7 @@ const typeDefs = gql`
     getExercise(_id: ID!): Exercise
     getAllExercises: [Exercise]
     getWorkout(_id: ID!): Workout
-    getAllWorkouts: (date: String!): Workout
+    getAllWorkouts(date: String!): Workout
   }
 
   type Mutation {
