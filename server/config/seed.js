@@ -4,7 +4,7 @@ const { User, Exercise } = require('../models');
 db.once('open', async () => {
   await Exercise.deleteMany();
 
-  const exercises = await Exercise.insertMany([
+  await Exercise.insertMany([
     { name: 'Bench Press' },
     { name: 'Front Squat' }
   ])
@@ -15,11 +15,7 @@ db.once('open', async () => {
     username: 'testUser',
     email: 'testEmail@test.com',
     password: 'testPassword',
-    workouts: [
-      {
-        exercises: [exercises[0]._id, exercises[1]._id]
-      }
-    ]
+    workouts: []
   });
 
   console.log('users seeded')
