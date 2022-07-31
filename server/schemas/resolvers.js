@@ -4,12 +4,20 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    getExercise: async (parent, { _id }) => {
+    getAllUsers: async (parent, { }) => {
+      try {
+        const user = await User.find();
+        return user;
+      } catch (err) {
+        throw new Error(`${err.message}`)
+      }
+    },
+    getExercise: async (parent, { name }) => {
       // if (context.user) {
       try {
-        const exercise = await Exercise.findOne({ _id });
+        const exercise = await Exercise.findOne({ name });
         if (!exercise) {
-          throw new Error("No exercise with that ID")
+          throw new Error("No exercise with that name")
         }
         return exercise;
       } catch (err) {
@@ -32,12 +40,12 @@ const resolvers = {
       //   throw new AuthenticationError('Must be logged in');
       // }
     },
-    getWorkout: async (parent, { _id }) => {
+    getWorkout: async (parent, { title }) => {
       // if (context.user) {
       try {
-        const workout = await Workout.findOne({ _id });
+        const workout = await Workout.findOne({ title });
         if (!workout) {
-          throw new Error("No wokrout with that ID")
+          throw new Error("No workout with that title")
         }
         return workout.populate(exercises);
       } catch (err) {
@@ -89,12 +97,12 @@ const resolvers = {
 
       return { token, user };
     },
-    addWorkout: async (parent, { title, description, date, exercises }) => {
+    addWorkout: async (parent, { title, description, date }) => {
       // if (context.user) {
       try {
-        const created_by = context.user._id;
-        const workout = await Workout.create({ title, description, date, created_by, exercises });
-        return workout.populate(created_by);
+        // const created_by = context.user._id;
+        const workout = await Workout.create({ title, description, date });
+        return workout;
       } catch (err) {
         throw new Error(`${err.message}`);
       }
@@ -102,10 +110,14 @@ const resolvers = {
       //   throw new AuthenticationError('Must be logged in');
       // }
     },
-    updateWorkout: async (parent, { _id, title, description, exercises }) => {
+    addExerciseToWorkout: async (parent, { workoutId, name }) => {
       // if (context.user) {
       try {
-        return await Workout.findByIdAndUpdate(_id, { $inc: { title, description, exercises } }, { new: true });
+        return await Workout.findOneAndUpdate(
+          { _id: workoutId },
+          { $addToSet: { exercises: { name } } },
+          { new: true }
+        );
       } catch (err) {
         throw new Error(`${err.message}`);
       }

@@ -7,11 +7,11 @@ const typeDefs = gql`
   }
 
   type Workout {
-    _id: ID
+    _id: ID!
     title: String!
     description: String
     date: String!
-    created_by: String!
+    created_by: String
     exercises: [Exercise]
   }
 
@@ -28,17 +28,18 @@ const typeDefs = gql`
   }
 
   type Query {
-    getExercise(_id: ID!): Exercise
+    getAllUsers: [User]
+    getExercise(name: String!): Exercise
     getAllExercises: [Exercise]
-    getWorkout(_id: ID!): Workout
-    getAllWorkouts(date: String!): Workout
+    getWorkout(title: String!): Workout
+    getAllWorkouts: [Workout]
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addWorkout(title: String!, description: String, date: String!, created_by: String!, exercises: [ID]!): Workout
-    updateWorkout(title: String!, description: String, date: String!, exercises: [ID]!): Workout
+    addWorkout(title: String!, description: String, date: String, created_by: String, exercises: [ID]): Workout
+    addExerciseToWorkout(workoutId: String!): Workout
   }
 `;
 

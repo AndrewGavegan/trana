@@ -1,5 +1,5 @@
 const db = require('./connection');
-const { User, Exercise } = require('../models');
+const { User, Workout, Exercise } = require('../models');
 
 db.once('open', async () => {
   await Exercise.deleteMany();
@@ -8,6 +8,8 @@ db.once('open', async () => {
     { name: 'Bench Press' },
     { name: 'Front Squat' }
   ])
+
+  await Workout.deleteMany();
 
   await User.deleteMany();
 
