@@ -24,10 +24,8 @@ function CustomLink({ to, children, ...props }) {
   return (
     <li className="nav-list-item" >
       <Button variant="outline-warning" className={isActive ? 'nav-link active' : "nav-link"}>
-        <Link to="to" {...props}>{children}</Link>
+        <Link to={to} {...props}>{children}</Link>
       </Button>
     </li>
   )
 }
-
-

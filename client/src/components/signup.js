@@ -2,7 +2,7 @@ import Form from "react-bootstrap/Form";
 
 export default function Signup() {
   return (
-    <Form>
+    <Form className="signupForm">
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
         <Form.Label>Username</Form.Label>
         <Form.Control type="email" placeholder="Create a username" />
