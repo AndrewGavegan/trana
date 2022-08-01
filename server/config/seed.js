@@ -5,11 +5,21 @@ db.once('open', async () => {
   await Exercise.deleteMany();
 
   await Exercise.insertMany([
-    { name: 'Bench Press' },
-    { name: 'Front Squat' }
+    {
+      name: 'Bench Press'
+    },
+    {
+      name: 'Front Squat'
+    }
   ])
 
   await Workout.deleteMany();
+
+  await Workout.create({
+    title: "First Workout",
+    description: "It was Fun",
+    exercises: []
+  })
 
   await User.deleteMany();
 

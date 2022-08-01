@@ -3,23 +3,23 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
   type Exercise {
     _id: ID
-    name: String!
+    name: String
+    workouts: [Workout]!
   }
 
   type Workout {
-    _id: ID!
-    title: String!
+    _id: ID
+    title: String
     description: String
-    date: String!
-    created_by: String
-    exercises: [Exercise]
+    date: String
+    exercises: [Exercise]!
   }
 
   type User {
-    _id: ID
+    _id: ID!
     username: String!
     email: String!
-    workouts: [Workout]
+    workouts: [Workout]!
   }
 
   type Auth {
@@ -27,19 +27,24 @@ const typeDefs = gql`
     user: User
   }
 
+  input ExerciseInput {
+    _id: ID
+    name: String
+  }
+
   type Query {
     getAllUsers: [User]
-    getExercise(name: String!): Exercise
+    getExercise(exerciseId: String!): Exercise
     getAllExercises: [Exercise]
-    getWorkout(title: String!): Workout
+    getWorkout(workoutId: String!): Workout
     getAllWorkouts: [Workout]
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addWorkout(title: String!, description: String, date: String, created_by: String, exercises: [ID]): Workout
-    addExerciseToWorkout(workoutId: String!): Workout
+    addWorkout(title: String!, description: String, date: String): Workout
+    updateWorkout(workoutId: String!, exerciseId: String!, exerciseName: String!): Workout
   }
 `;
 

@@ -3,6 +3,9 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const workoutSchema = new Schema({
+  userId: {
+    type: String
+  },
   title: {
     type: String,
     required: true,
@@ -15,11 +18,6 @@ const workoutSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  // created_by: {
-  //   type: mongoose.Types.ObjectId,
-  //   ref: 'User',
-  //   required: true,
-  // },
   exercises: [
     {
       type: Schema.Types.ObjectId,
