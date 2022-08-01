@@ -58,7 +58,7 @@ const resolvers = {
     getAllWorkouts: async (parent, { args }) => {
       // if (context.user) {
       try {
-        const workouts = await Workout.find()
+        const workouts = await Workout.find().populate('exercises');
 
         return workouts;
       } catch (err) {
@@ -97,14 +97,25 @@ const resolvers = {
 
       return { token, user };
     },
-    addWorkout: async (parent, { title, description, date }) => {
+    addWorkouts: async (parent, { userId, workoutId, title, description, date, }) => {
       // if (context.user) {
       try {
         // const created_by = context.user._id;
-        const workout = await Workout.create({
-          title, description, date
-        })
-        return workout;
+        const addWorkout = await User.findOneAndUpdate(
+          { _id: userId },
+          {
+            $push: {
+              workouts: {
+                _id: workoutId,
+                title: title,
+                description: description,
+                date: date
+              }
+            }
+          },
+          { new: true }
+        )
+        return addWorkout;
       } catch (err) {
         throw new Error(`${err.message}`);
       }
@@ -112,7 +123,7 @@ const resolvers = {
       //   throw new AuthenticationError('Must be logged in');
       // }
     },
-    updateWorkout: async (parent, { workoutId, exerciseId, exerciseName }) => {
+    addedExercises: async (parent, { workoutId, exerciseId, exerciseName }) => {
       try {
         const addedExercises = await Workout.findOneAndUpdate(
           { _id: workoutId },
