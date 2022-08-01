@@ -4,9 +4,16 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    getAllUsers: async (parent, { }) => {
+    getAllUsers: async (parent, { args }) => {
       try {
-        const user = await User.find();
+        const user = await User.find()
+          .populate({
+            path: 'workouts',
+            populate: [{
+              path: 'exercises',
+              model: 'Exercise'
+            }]
+          });
         return user;
       } catch (err) {
         throw new Error(`${err.message}`)
@@ -97,7 +104,15 @@ const resolvers = {
 
       return { token, user };
     },
-    addWorkouts: async (parent, { userId, workoutId, title, description, date, }) => {
+    createWorkout: async (parent, { title, description, date, exercises }) => {
+      try {
+        const workout = await Workout.create({ title, description, date, exercises });
+        return workout;
+      } catch (err) {
+        throw new Error(`${err.message}`);
+      }
+    },
+    addWorkoutsToUser: async (parent, { userId, workoutId, }) => {
       // if (context.user) {
       try {
         // const created_by = context.user._id;
@@ -107,9 +122,6 @@ const resolvers = {
             $push: {
               workouts: {
                 _id: workoutId,
-                title: title,
-                description: description,
-                date: date
               }
             }
           },
@@ -123,15 +135,14 @@ const resolvers = {
       //   throw new AuthenticationError('Must be logged in');
       // }
     },
-    addedExercises: async (parent, { workoutId, exerciseId, exerciseName }) => {
+    addExercisesToWorkout: async (parent, { workoutId, exerciseId }) => {
       try {
         const addedExercises = await Workout.findOneAndUpdate(
           { _id: workoutId },
           {
             $push: {
               exercises: {
-                _id: exerciseId,
-                name: exerciseName
+                _id: exerciseId
               }
             }
           },
