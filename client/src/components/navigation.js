@@ -2,9 +2,9 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import Popup from './pages/popup';
+
+
 export default function Navigation() {
-
-
   return (
     <div className="top-bar">
       <ul className="nav-list">
@@ -23,9 +23,12 @@ function CustomLink({ to, children, ...props }) {
   const isActive = useMatch({ path: resolvedPath.pathname, end: true })
   return (
     <li className="nav-list-item" >
-      <Button variant="outline-warning" className={isActive ? 'nav-link active' : "nav-link"}>
-        <Link to={to} {...props}>{children}</Link>
-      </Button>
+      <Link to={to} {...props}>
+        <Button className={isActive ? 'nav-link active-red' : "nav-link red-button"}>
+          {children}
+        </Button>
+      </Link>
+
     </li>
   )
 }

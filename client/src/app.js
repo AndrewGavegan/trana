@@ -10,15 +10,17 @@ import { Route, Routes } from 'react-router-dom';
 function App() {
 
   return (
-    <div className="Trana">
-      <Navigation />
-      <div className="notNav">
-        <Routes>
-          <Route path="/" element={<Content />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-        </Routes>
+    <div className="background">
+      <div className="Trana">
+        <Navigation />
+        <div className="notNav">
+          <Routes>
+            <Route path="/" element={<Content />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+          </Routes>
+        </div>
       </div>
     </div>
   );

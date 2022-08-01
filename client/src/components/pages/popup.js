@@ -20,10 +20,10 @@ function Popup(props) {
   ]
   return (
     <li className="nav-list-item">
-      <Button variant='outline-success' onClick={handleShow} className={show === true ? 'nav-link active' : 'nav-link'}>New Workout +</Button>
+      <Button onClick={handleShow} className={show === true ? 'nav-link active-blue ' : 'nav-link blue-button'}>New Workout +</Button>
       <Modal show={show} onHide={handleClose} size="lg" centered>
         <Modal.Header closeButton>
-          <Modal.Title>New Workout</Modal.Title>
+          <Modal.Title className="modalTitle">New Workout</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
