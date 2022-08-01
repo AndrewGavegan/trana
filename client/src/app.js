@@ -8,9 +8,9 @@ function App() {
   const [currentPage, setCurrentPage] = useState('Home');
 
   const renderPage = () => {
-    if (currentPage === 'Dashboard') {
+    if (currentPage === 'dashboard') {
       return <Dashboard />
-    } else {
+    } else if (currentPage === 'main') {
       return <Main />
     }
   };

@@ -1,22 +1,45 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
+import { Navbar, Button, NavDropdown, Form, FormControl, Nav } from 'react-bootstrap';
+import { Link, Switch, Route, BrowserRouter as Router } from "react-router-dom"
 import Popup from './pages/popup';
-
-
-
-function Navigation({ currentPage, handlePageChange }) {
+import Content from './main';
+import Dashboard from './dashboard'
+function Navigation() {
 
 
   return (
     <div className="top-bar">
       <ul className="nav-list">
         <Popup />
-        <li className="nav-list-item">
-          <Button variant="outline-warning" href="#Main" onClick={() => handlePageChange('Main')} className={currentPage != 'Dashboard' ? 'nav-link active' : 'nav-link'} >Activity Feed</Button>
-        </li>
-        <li className="nav-list-item">
-          <Button variant="outline-warning" href="#Dashboard" onClick={() => handlePageChange('Dashboard')} className={currentPage === 'Dashboard' ? 'nav-link active' : 'nav-link'} >Dashboard</Button>
-        </li>
+        <Router>
+          <div>
+
+            <Navbar bg="dark" variant={"dark"} expand="lg">
+              <Navbar.Toggle aria-controls="navbarScroll" />
+              <Navbar.Collapse id="navbarScroll">
+                <Nav
+                  className="mr-auto my-2 my-lg-0"
+                  style={{ maxHeight: '100px' }}
+                  navbarScroll
+                >
+                  <Nav.Link as={Link} to="/main">Home</Nav.Link>
+                  <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
+                </Nav>
+
+              </Navbar.Collapse>
+            </Navbar>
+          </div>
+          <div>
+            <Switch>
+              <Route path="/dashboard">
+                <Dashboard />
+              </Route>
+              <Route path="/main">
+                <Content />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
       </ul>
     </div>
   );
