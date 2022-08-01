@@ -1,45 +1,26 @@
 import React from 'react';
-import { Navbar, Button, NavDropdown, Form, FormControl, Nav } from 'react-bootstrap';
-import { Link, Switch, Route, BrowserRouter as Router } from "react-router-dom"
+import { Button } from 'react-bootstrap';
 import Popup from './pages/popup';
-import Content from './main';
-import Dashboard from './dashboard'
-function Navigation() {
+
+function Navigation({ currentPage, handlePageChange }) {
 
 
   return (
     <div className="top-bar">
       <ul className="nav-list">
         <Popup />
-        <Router>
-          <div>
-
-            <Navbar bg="dark" variant={"dark"} expand="lg">
-              <Navbar.Toggle aria-controls="navbarScroll" />
-              <Navbar.Collapse id="navbarScroll">
-                <Nav
-                  className="mr-auto my-2 my-lg-0"
-                  style={{ maxHeight: '100px' }}
-                  navbarScroll
-                >
-                  <Nav.Link as={Link} to="/main">Home</Nav.Link>
-                  <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
-                </Nav>
-
-              </Navbar.Collapse>
-            </Navbar>
-          </div>
-          <div>
-            <Switch>
-              <Route path="/dashboard">
-                <Dashboard />
-              </Route>
-              <Route path="/main">
-                <Content />
-              </Route>
-            </Switch>
-          </div>
-        </Router>
+        <li className="nav-list-item">
+          <Button variant="outline-warning" href="#" onClick={() => handlePageChange('main')} className={currentPage === 'main' ? 'nav-link active' : 'nav-link'} >Activity Feed</Button>
+        </li>
+        <li className="nav-list-item">
+          <Button variant="outline-warning" href="#dashboard" onClick={() => handlePageChange('dashboard')} className={currentPage === 'dashboard' ? 'nav-link active' : 'nav-link'} >Dashboard</Button>
+        </li>
+        <li className="nav-list-item">
+          <Button variant="outline-warning" href="#signup" onClick={() => handlePageChange('signup')} className={currentPage === 'singup' ? 'nav-link active' : 'nav-link'} >Signup</Button>
+        </li>
+        <li className="nav-list-item">
+          <Button variant="outline-warning" href="#login" onClick={() => handlePageChange('login')} className={currentPage === 'login' ? 'nav-link active' : 'nav-link'} >Login</Button>
+        </li>
       </ul>
     </div>
   );
