@@ -1,30 +1,33 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import Popup from './pages/popup';
-
-function Navigation({ currentPage, handlePageChange }) {
+export default function Navigation() {
 
 
   return (
     <div className="top-bar">
       <ul className="nav-list">
         <Popup />
-        <li className="nav-list-item">
-          <Button variant="outline-warning" href="#" onClick={() => handlePageChange('main')} className={currentPage === 'main' ? 'nav-link active' : 'nav-link'} >Activity Feed</Button>
-        </li>
-        <li className="nav-list-item">
-          <Button variant="outline-warning" href="#dashboard" onClick={() => handlePageChange('dashboard')} className={currentPage === 'dashboard' ? 'nav-link active' : 'nav-link'} >Dashboard</Button>
-        </li>
-        <li className="nav-list-item">
-          <Button variant="outline-warning" href="#signup" onClick={() => handlePageChange('signup')} className={currentPage === 'singup' ? 'nav-link active' : 'nav-link'} >Signup</Button>
-        </li>
-        <li className="nav-list-item">
-          <Button variant="outline-warning" href="#login" onClick={() => handlePageChange('login')} className={currentPage === 'login' ? 'nav-link active' : 'nav-link'} >Login</Button>
-        </li>
+        <CustomLink to="/">Activity Feed</CustomLink>
+        <CustomLink to="/dashboard">Dashboard</CustomLink>
+        <CustomLink to="/login">Login</CustomLink>
+        <CustomLink to="/signup">Signup</CustomLink>
       </ul>
     </div>
   );
 }
 
+function CustomLink({ to, children, ...props }) {
+  const resolvedPath = useResolvedPath(to)
+  const isActive = useMatch({ path: resolvedPath.pathname, end: true })
+  return (
+    <li className="nav-list-item" >
+      <Button variant="outline-warning" className={isActive ? 'nav-link active' : "nav-link"}>
+        <Link to="to" {...props}>{children}</Link>
+      </Button>
+    </li>
+  )
+}
 
-export default Navigation;
+

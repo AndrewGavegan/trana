@@ -1,25 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './app.css';
 import Navigation from './components/navigation';
-import Main from './components/main';
+import Content from './components/main';
 import Dashboard from './components/dashboard';
+import Login from './components/login';
+import Signup from './components/signup';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('Home');
 
-  const renderPage = () => {
-    if (currentPage === 'dashboard') {
-      return <Dashboard />
-    } else if (currentPage === 'main') {
-      return <Main />
-    }
-  };
-
-  const handlePageChange = (page) => setCurrentPage(page);
   return (
     <div className="Trana">
-      <Navigation currentPage={currentPage} handlePageChange={handlePageChange} />
-      {renderPage()}
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<Content />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
     </div>
   );
 }
