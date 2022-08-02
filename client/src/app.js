@@ -38,6 +38,7 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(auth.loggedIn())
 
   return (
     <ApolloProvider client={client}>
@@ -47,17 +48,18 @@ function App() {
           <div className="notNav">
             <Routes>
               {loggedIn ? (
-                <>
-
-                </>
+                <React.Fragment>
+                  <Route path="/" element={<Home setLoggedIn={setLoggedIn} loggedIn={loggedIn} />} />
+                  <Route path="/content" element={<Content setLoggedIn={setLoggedIn} loggedIn={loggedIn} />} />
+                  <Route path="/dashboard" element={<Dashboard setLoggedIn={setLoggedIn} loggedIn={loggedIn} />} />
+                </React.Fragment>
               ) : (
-
+                <React.Fragment>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/signup" element={<Signup />} />
+                </React.Fragment>
               )}
-              <Route path="/" element={<Home />} />
-              <Route path="/content" element={<Content />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
             </Routes>
           </div>
         </div>
