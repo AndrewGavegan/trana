@@ -15,7 +15,7 @@ function Home() {
         </Col>
       </Row>
       <Row>
-        <img src={require('./images/img1.JPG')} />
+        <img src={require('./images/img1.JPG')} alt='person working out' />
       </Row>
     </Container>
   );

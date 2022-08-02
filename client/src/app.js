@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './app.css';
 
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
@@ -44,23 +44,28 @@ function App() {
     <ApolloProvider client={client}>
       <div className="background">
         <div className="Trana">
-          <Navigation />
           <div className="notNav">
-            <Routes>
-              {loggedIn ? (
-                <React.Fragment>
-                  <Route path="/" element={<Home setLoggedIn={setLoggedIn} loggedIn={loggedIn} />} />
-                  <Route path="/content" element={<Content setLoggedIn={setLoggedIn} loggedIn={loggedIn} />} />
-                  <Route path="/dashboard" element={<Dashboard setLoggedIn={setLoggedIn} loggedIn={loggedIn} />} />
-                </React.Fragment>
-              ) : (
-                <React.Fragment>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/signup" element={<Signup />} />
-                </React.Fragment>
-              )}
-            </Routes>
+            {loggedIn ? (
+              <React.Fragment>
+                <Navigation>
+                  <Routes>
+                    <Route path="/" element={<Home setLoggedIn={setLoggedIn} loggedIn={loggedIn} />} />
+                    <Route path="/content" element={<Content setLoggedIn={setLoggedIn} loggedIn={loggedIn} />} />
+                    <Route path="/dashboard" element={<Dashboard setLoggedIn={setLoggedIn} loggedIn={loggedIn} />} />
+                  </Routes>
+                </Navigation >
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                <Navigation>
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<Signup />} />
+                  </Routes>
+                </Navigation>
+              </React.Fragment>
+            )}
           </div>
         </div>
       </div>
