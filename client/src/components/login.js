@@ -1,7 +1,6 @@
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../utils/mutations';
 import auth from '../utils/auth';
@@ -9,10 +8,10 @@ import auth from '../utils/auth';
 export default function Login(props) {
 
   const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error, data }] = useMutation(LOGIN);
+  const [login, { data }] = useMutation(LOGIN);
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
+  const handleChange = (e) => {
+    const { name, value } = e.target;
 
     setFormState({
       ...formState,
@@ -20,7 +19,7 @@ export default function Login(props) {
     });
   };
 
-  const handleFormSubmit = async (event) => {
+  const handleFormSubmit = async (e) => {
     event.preventDefault();
     console.log(formState);
     try {
@@ -29,8 +28,8 @@ export default function Login(props) {
       });
 
       auth.login(data.login.token);
-    } catch (e) {
-      console.error(e);
+    } catch (err) {
+      console.error(err);
     }
 
     setFormState({
