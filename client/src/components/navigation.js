@@ -11,8 +11,8 @@ export default function Navigation() {
         <Popup />
         <CustomLink to="/">Activity Feed</CustomLink>
         <CustomLink to="/dashboard">Dashboard</CustomLink>
-        <CustomLink to="/login">Login</CustomLink>
-        <CustomLink to="/signup">Signup</CustomLink>
+        <CustomLink className="loginBtn" to="/login">Login</CustomLink>
+        <CustomLink className="loginBtn" to="/signup">Signup</CustomLink>
       </ul>
     </div>
   );

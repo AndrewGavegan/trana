@@ -21,9 +21,13 @@ const workoutSchema = new Schema({
   exercises: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Exercise',
+      ref: 'Exercise'
     }
-  ]
+  ],
+  created_by: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }
 });
 
 const Workout = mongoose.model('Workout', workoutSchema);

@@ -50,7 +50,7 @@ function Popup(props) {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="outline-success" onClick={handleClose}>
+          <Button className="red-button" onClick={handleClose}>
             Save Workout
           </Button>
         </Modal.Footer>

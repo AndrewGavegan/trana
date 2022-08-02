@@ -4,7 +4,6 @@ const typeDefs = gql`
   type Exercise {
     _id: ID
     name: String
-    workouts: [Workout]!
   }
 
   type Workout {
@@ -12,14 +11,15 @@ const typeDefs = gql`
     title: String
     description: String
     date: String
-    exercises: [Exercise]!
+    exercises: [Exercise]
+    created_by: User
   }
 
   type User {
     _id: ID!
     username: String!
     email: String!
-    workouts: [Workout]!
+    workouts: [Workout]
   }
 
   type Auth {
@@ -33,6 +33,7 @@ const typeDefs = gql`
   }
 
   type Query {
+    getYourself(_id: ID!): User
     getAllUsers: [User]
     getExercise(exerciseId: String!): Exercise
     getAllExercises: [Exercise]

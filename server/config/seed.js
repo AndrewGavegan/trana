@@ -18,7 +18,8 @@ db.once('open', async () => {
   await Workout.create({
     title: "First Workout",
     description: "It was Fun",
-    exercises: []
+    exercises: [],
+    created_by: ''
   })
 
   await User.deleteMany();
