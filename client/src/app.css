@@ -163,6 +163,10 @@ li {
     width: 100%;
   }
 
+  .loginPage {
+    width: 100%;
+  }
+
   .loginForm {
     margin-top: 0vh;
     padding-top: 20vh;
