@@ -140,12 +140,11 @@ const resolvers = {
         throw new AuthenticationError('Must be logged in')
       }
     },
-    addWorkoutsToUser: async (parent, { userId, workoutId, }, context) => {
+    addWorkoutsToUser: async (parent, { workoutId, }, context) => {
       if (context.user) {
         try {
-          // const created_by = context.user._id;
           const addWorkout = await User.findOneAndUpdate(
-            { _id: userId },
+            { _id: context.user._id },
             {
               $push: {
                 workouts: {

@@ -1,5 +1,25 @@
 import gql from '@apollo/client';
 
+export const GET_YOURSELF = gql`
+query GetYourself($id: ID) {
+  getYourself{
+    _id
+    username
+    email
+    workouts {
+      _id
+      title
+      description
+      date
+      exercises {
+        _id
+        name
+      }
+    }
+  }
+}
+`
+
 export const GET_ALL_USERS = gql`
   query GetAllUsers {
   getAllUsers {

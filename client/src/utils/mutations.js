@@ -39,13 +39,17 @@ export const CREATE_WORKOUT = gql`
                 _id
                 name
             }
+            created_by {
+                _id
+                username
+            }
         }
     }
 `
 
 export const ADD_WORKOUT_TO_USER = gql`
-    mutation AddWorkoutsToUser($userId: String!, $workoutId: String!) {
-        addWorkoutsToUser(userId: $userId, workoutId: $workoutId) {
+    mutation AddWorkoutsToUser( $workoutId: String!) {
+        addWorkoutsToUser(workoutId: $workoutId) {
             _id
             username
             workouts {
