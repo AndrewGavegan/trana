@@ -9,7 +9,8 @@ export default function Navigation() {
     <div className="top-bar">
       <ul className="nav-list">
         <Popup />
-        <CustomLink to="/">Activity Feed</CustomLink>
+        <CustomLink to="/">Trana</CustomLink>
+        <CustomLink to="/content">Activity Feed</CustomLink>
         <CustomLink to="/dashboard">Dashboard</CustomLink>
         <CustomLink className="loginBtn" to="/login">Login</CustomLink>
         <CustomLink className="loginBtn" to="/signup">Signup</CustomLink>
