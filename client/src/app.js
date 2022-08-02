@@ -1,11 +1,15 @@
 import React from 'react';
 import './app.css';
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 import Navigation from './components/navigation';
 import Content from './components/main';
 import Dashboard from './components/dashboard';
 import Login from './components/login';
 import Signup from './components/signup';
 import { Route, Routes } from 'react-router-dom';
+
+
 
 function App() {
 
