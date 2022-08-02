@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './app.css';
 
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import auth from './utils/auth'
 
 import Home from './components/home';
 import Navigation from './components/navigation';
@@ -38,35 +37,19 @@ const client = new ApolloClient({
 });
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(auth.loggedIn())
 
   return (
     <ApolloProvider client={client}>
-      <div className="background">
-        <div className="Trana">
-          <div className="notNav">
-            {loggedIn ? (
-              <React.Fragment>
-                <Navigation>
-                  <Routes>
-                    <Route path="/" element={<Home setLoggedIn={setLoggedIn} loggedIn={loggedIn} />} />
-                    <Route path="/content" element={<Content setLoggedIn={setLoggedIn} loggedIn={loggedIn} />} />
-                    <Route path="/dashboard" element={<Dashboard setLoggedIn={setLoggedIn} loggedIn={loggedIn} />} />
-                  </Routes>
-                </Navigation >
-              </React.Fragment>
-            ) : (
-              <React.Fragment>
-                <Navigation>
-                  <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/signup" element={<Signup />} />
-                  </Routes>
-                </Navigation>
-              </React.Fragment>
-            )}
-          </div>
+      <div className="Trana">
+        <Navigation />
+        <div className="notNav">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/content" element={<Content />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+          </Routes>
         </div>
       </div>
     </ApolloProvider>

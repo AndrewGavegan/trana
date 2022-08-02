@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import Popup from './pages/popup';
-import auth from './utils/auth'
+import auth from '../utils/auth'
 
 
 export default function Navigation() {
@@ -11,17 +11,19 @@ export default function Navigation() {
   return (
     <div className="top-bar">
       <ul className="nav-list">
+        <CustomLink className="home" to="/">Trana</CustomLink>
         {loggedIn ? (<>
           <Popup setLoggedIn={setLoggedIn} loggedIn={loggedIn} />
+          <CustomLink to="/content" setLoggedIn={setLoggedIn} loggedIn={loggedIn}>Activity Feed</CustomLink>
+          <CustomLink to="/dashboard" setLoggedIn={setLoggedIn} loggedIn={loggedIn}>Dashboard</CustomLink>
         </>) : (null)}
-        <CustomLink to="/">Trana</CustomLink>
-        <CustomLink to="/content">Activity Feed</CustomLink>
-        <CustomLink to="/dashboard">Dashboard</CustomLink>
-        <CustomLink className="loginBtn" to="/login">Login</CustomLink>
-        <CustomLink className="loginBtn" to="/signup">Signup</CustomLink>
+
         {loggedIn ? (<>
           <Button className="red-button" onClick={auth.logout}>Logout</Button>
-        </>) : (null)}
+        </>) : (<>
+          <CustomLink className="loginBtn" to="/login">Login</CustomLink>
+          <CustomLink className="loginBtn" to="/signup">Signup</CustomLink>
+        </>)}
       </ul>
     </div>
   );
