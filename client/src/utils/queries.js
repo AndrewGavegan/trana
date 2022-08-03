@@ -10,6 +10,10 @@ query GetYourself {
       _id
       title
       description
+      created_by {
+        _id
+        username
+      }
       exercises {
         _id
         name
@@ -30,6 +34,10 @@ export const GET_ALL_USERS = gql`
       title
       description
       date
+      created_by {
+        _id
+        username
+      }
       exercises {
         _id
         name
@@ -64,6 +72,10 @@ query GetWorkout($workoutId: String!) {
     title
     description
     date
+    created_by {
+      _id
+      username
+    }
     exercises {
       _id
       name
@@ -79,6 +91,10 @@ export const GET_ALL_WORKOUTS = gql`
     title
     description
     date
+    created_by {
+      _id
+      username
+    }
     exercises {
       _id
       name

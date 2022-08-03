@@ -13,6 +13,9 @@ const resolvers = {
               populate: [{
                 path: 'exercises',
                 model: 'Exercise'
+              }, {
+                path: 'created_by',
+                model: 'User'
               }]
             });
           return user;
@@ -88,7 +91,7 @@ const resolvers = {
     getAllWorkouts: async (parent, { args }, context) => {
       if (context.user) {
         try {
-          const workouts = await Workout.find().populate('exercises');
+          const workouts = await Workout.find().populate('exercises').populate('created_by');
 
           return workouts;
         } catch (err) {
@@ -130,8 +133,17 @@ const resolvers = {
     createWorkout: async (parent, { title, description, date, exercises }, context) => {
       if (context.user) {
         try {
-          const created_by = context.user._id;
-          const workout = await Workout.create({ title, description, date, exercises, created_by });
+          const user = await User.findOne({ _id: context.user._id });
+          const workout = await Workout.create({ title, description, date, exercises, created_by: user });
+          await User.findOneAndUpdate(
+            { _id: context.user._id },
+            {
+              $push: {
+                workouts: workout._id
+              }
+            },
+            { new: true }
+          );
           return workout;
         } catch (err) {
           throw new Error(`${err.message}`);

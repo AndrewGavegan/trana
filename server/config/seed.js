@@ -13,23 +13,24 @@ db.once('open', async () => {
     }
   ])
 
+
+  await User.deleteMany();
+
+  const user = await User.create({
+    username: 'testUser',
+    email: 'testEmail@test.com',
+    password: 'testPassword',
+    workouts: []
+  });
+
   await Workout.deleteMany();
 
   await Workout.create({
     title: "First Workout",
     description: "It was Fun",
     exercises: [],
-    created_by: ''
+    created_by: user
   })
-
-  await User.deleteMany();
-
-  await User.create({
-    username: 'testUser',
-    email: 'testEmail@test.com',
-    password: 'testPassword',
-    workouts: []
-  });
 
   console.log('users seeded')
 
