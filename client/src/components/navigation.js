@@ -15,7 +15,7 @@ export default function Navigation() {
         {loggedIn ? (<>
           <Popup setLoggedIn={setLoggedIn} loggedIn={loggedIn} />
           <CustomLink to="/content" setLoggedIn={setLoggedIn} loggedIn={loggedIn}>Activity Feed</CustomLink>
-          <CustomLink to="/dashboard" setLoggedIn={setLoggedIn} loggedIn={loggedIn}>Dashboard</CustomLink>
+          <CustomLink to="/dashboard/:id" setLoggedIn={setLoggedIn} loggedIn={loggedIn}>Dashboard</CustomLink>
         </>) : (null)}
 
         {loggedIn ? (<>

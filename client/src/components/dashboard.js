@@ -4,14 +4,15 @@ import Col from 'react-bootstrap/Col';
 import LeftDash from './pages/leftdash';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { GET_WORKOUT } from '../utils/queries';
+import { GET_YOURSELF } from '../utils/queries';
 
 function Dashboard() {
 
-  const { loading, data } = useQuery(GET_WORKOUT, {
-    variables: { _id: id }
-  });
+  const { _id } = useParams();
 
+  const { loading, data } = useQuery(GET_YOURSELF, {
+    variables: { _id: _id },
+  });
   const me = data?.getYourself || [];
 
   return (
@@ -22,7 +23,7 @@ function Dashboard() {
             <h2>Loading...</h2>
           ) : (<LeftDash
             me={me}
-            title={me.username}
+            title={me}
           />)}
         </Col>
         <Col xs={5} className="col">2 of 2</Col>

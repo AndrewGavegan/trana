@@ -16,19 +16,13 @@ const Content = () => {
   return (
     <Container className="main">
       <Row className="row">
-        <Col xs={3} className="col">
-          <LeftMain />
-        </Col>
-        <Col xs={7} className="col">
+        <Col xs={12} className="col">
           {loading ? (
             <h2>Loading...</h2>
           ) : (<Feed
             workouts={workouts}
             title="Activity Feed"
           />)}
-        </Col>
-        <Col xs={2} className="col">
-          <RightMain />
         </Col>
       </Row>
     </Container>

@@ -33,7 +33,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    getYourself(_id: ID!): User
+    getYourself: User
     getAllUsers: [User]
     getExercise(exerciseId: String!): Exercise
     getAllExercises: [Exercise]
