@@ -53,6 +53,27 @@ img {
 
 .modalTitle {
   color: black;
+  border-bottom: 1px solid #ced4da !important;
+}
+
+.modal-content {
+  border: 1px solid #ff6600 !important;
+}
+
+.modal-header {
+  border: none !important;
+}
+
+.modal-body {
+  border: none !important;
+}
+
+.modal-footer {
+  border: none !important;
+}
+
+.form-control {
+  border: 1px solid #ff6600 !important;
 }
 
 .preview-values {

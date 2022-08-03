@@ -61,14 +61,14 @@ function Popup(props) {
       <Button onClick={handleShow} className={show === true ? 'nav-link active-blue ' : 'nav-link blue-button'}>New Workout +</Button>
       <Modal show={show} onHide={handleClose} size="lg" centered>
         <Modal.Header closeButton>
-          <Modal.Title className="modalTitle">New Workout</Modal.Title>
+          <Modal.Title className="modalTitle titleSignup">New Workout +</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Control
                 as="input"
-                placeholder="Workout Title"
+                placeholder="Name this workout..."
                 value={formState.title}
                 name="title"
                 onChange={handleChange}
@@ -79,7 +79,7 @@ function Popup(props) {
                 as="textarea"
                 name="description"
                 value={formState.description}
-                placeholder="How'd it go?"
+                placeholder="How'd this workout go...?"
                 onChange={handleChange}
                 rows={3} />
             </Form.Group>
