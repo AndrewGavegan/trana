@@ -42,12 +42,13 @@ export default function Signup() {
   return (
     <div className="signupPage">
       {data ? (
-        <p>
-          You've Signed Up!
-        </p>
+        <h1 className="titleHeader">Your fitness journey begins!</h1>
       ) : (
+
         <Form onSubmit={handleFormSubmit} className="signupForm">
           <Form.Group className="mb-3" controlId="Signup.ControlInput1">
+            <Form.Label className="titleSignup">Thanks for deciding on TR&Auml;NA:</Form.Label>
+            <br />
             <Form.Label>Username</Form.Label>
             <Form.Control
               type="username"

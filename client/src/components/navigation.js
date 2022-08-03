@@ -11,7 +11,7 @@ export default function Navigation() {
   return (
     <div className="top-bar">
       <ul className="nav-list">
-        <CustomLink className="home" to="/">Trana</CustomLink>
+        <CustomLink className="home" to="/">TR&Auml;NA</CustomLink>
         {loggedIn ? (<>
           <Popup setLoggedIn={setLoggedIn} loggedIn={loggedIn} />
           <CustomLink to="/content" setLoggedIn={setLoggedIn} loggedIn={loggedIn}>Activity Feed</CustomLink>

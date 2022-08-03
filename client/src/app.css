@@ -14,8 +14,15 @@ li {
   list-style: none;
 }
 
+img {
+  border-radius: 50%;
+  max-height: 400px;
+  /* max-width: 550px; */
+  margin-left: 10px;
+}
+
 .Trana {
-  padding-top: 15vh;
+  padding-top: 20vh;
 }
 
 .top-bar {
@@ -114,12 +121,41 @@ li {
   width: 100%;
 }
 
+.titleHeader {
+  font-size: 32px !important;
+  border-bottom: 1px solid #ced4da !important;
+}
+
+.titleSignup {
+  font-weight: 500 !important;
+  font-size: 32px !important;
+  border-bottom: 1px solid #ced4da !important;
+  margin-bottom: 20px;
+}
+
+.titleMessage {
+  font-weight: 600 !important;
+  font-size: 60px !important;
+  border-bottom: 1px solid #ced4da !important;
+  margin-top: 100px;
+}
+
 .dashboard {
   width: 100%;
 }
 
+.row {
+  text-align: beginning;
+  align-items: center;
+}
+
 .col {
   border: none;
+}
+
+.col1 {
+  border-bottom: 1px solid #ced4da !important;
+  padding-right: 5px;
 }
 
 .loginForm {
@@ -135,7 +171,8 @@ li {
 @media (max-width: 1200px) {
 
   img {
-    max-height: 40vw;
+    max-height: 50vw;
+    max-width: 40vw;
   }
 
   .nav-list {
@@ -163,21 +200,17 @@ li {
     width: 100%;
   }
 
-  .loginPage {
-    width: 100%;
-  }
-
   .loginForm {
     margin-top: 0vh;
     padding-top: 20vh;
-    margin-left: 10vw;
+    margin-left: 0vw;
     width: 80vw;
   }
 
   .signupForm {
     margin-top: 0vh;
     padding-top: 20vh;
-    margin-left: 10vw;
+    margin-left: 0vw;
     width: 80vw;
   }
 

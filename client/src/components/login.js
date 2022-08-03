@@ -40,12 +40,12 @@ export default function Login(props) {
   return (
     <div className="loginPage">
       {data ? (
-        <p>
-          You've logged in!
-        </p>
+        <h1 className="titleMessage">Your fitness journey continues!</h1>
       ) : (
         <Form onSubmit={handleFormSubmit} className="loginForm">
           <Form.Group className="mb-3" controlId="Form.ControlInput1">
+            <Form.Label className="titleSignup">Welcome back:</Form.Label>
+            <br />
             <Form.Label>Email address</Form.Label>
             <Form.Control
               type="email"
