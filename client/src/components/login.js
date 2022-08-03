@@ -64,6 +64,7 @@ export default function Login(props) {
               onChange={handleChange} />
           </Form.Group>
           <Button
+            className="red-button"
             type="submit"
           >Login</Button>
         </Form>
