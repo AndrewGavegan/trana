@@ -1,8 +1,8 @@
 import React from 'react'
 
 
-const Feed = ({ workouts, title }) => {
-  if (!workouts.length) {
+const LeftDash = ({ me, title }) => {
+  if (!me.workouts) {
     return <h1>No workouts yet!</h1>
   }
 
@@ -10,8 +10,8 @@ const Feed = ({ workouts, title }) => {
   return (
     <div>
       <h1>{title}</h1>
-      {workouts &&
-        workouts.map((workout) => (
+      {me &&
+        me.workouts.map((workout) => (
           <div key={workout._id} className="card">
             <h2 className="card-header">{workout.title}</h2>
             <h3 className="card-header">
@@ -33,4 +33,4 @@ const Feed = ({ workouts, title }) => {
   );
 };
 
-export default Feed;
+export default LeftDash;

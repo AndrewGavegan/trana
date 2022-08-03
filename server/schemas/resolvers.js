@@ -4,10 +4,10 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    getYourself: async (parent, { _id }, context) => {
+    getYourself: async (parent, args, context) => {
       if (context.user) {
         try {
-          const user = await User.findOne({ _id })
+          const user = await User.findOne({ _id: context.user._id })
             .populate({
               path: 'workouts',
               populate: [{
@@ -24,23 +24,23 @@ const resolvers = {
       }
     },
     getAllUsers: async (parent, { args }, context) => {
-      if (context.user) {
-        try {
-          const user = await User.find()
-            .populate({
-              path: 'workouts',
-              populate: [{
-                path: 'exercises',
-                model: 'Exercise'
-              }]
-            });
-          return user;
-        } catch (err) {
-          throw new Error(`${err.message}`)
-        }
-      } else {
-        throw new AuthenticationError('Must be logged in')
+      // if (context.user) {
+      try {
+        const user = await User.find()
+          .populate({
+            path: 'workouts',
+            populate: [{
+              path: 'exercises',
+              model: 'Exercise'
+            }]
+          });
+        return user;
+      } catch (err) {
+        throw new Error(`${err.message}`)
       }
+      // } else {
+      //   throw new AuthenticationError('Must be logged in')
+      // }
     },
     getExercise: async (parent, { exerciseId }, context) => {
       if (context.user) {
