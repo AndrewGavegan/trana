@@ -10,22 +10,16 @@ const Feed = ({ workouts, title }) => {
 
   return (
     <div>
-      <h1>{title}</h1>
+      <h1 className="titleTitle">{title}</h1>
       {sortedWorkouts &&
         sortedWorkouts.map((workout) => (
           <div key={workout._id} className="card">
-            <h2 className="card-header">{workout.title}</h2>
-            <h3 className="card-header">
-              {workout.created_by.username || ''}
+            <h2 className="card-header titleCard">{workout.title}</h2>
+            <h3 className="titleAuthor">
+              <span className="orange">{workout.created_by.username || ''}</span>'s workout
             </h3>
             <div className="card-body">
-              <h3>What I did</h3>
-              <ul>
-                {workout.exercises.map((sub) =>
-                  <li>{sub.name}</li>
-                )}
-              </ul>
-              <h3>The rundown</h3>
+              <h3 className="titleCard">The rundown:</h3>
               <p>{workout.description}</p>
             </div>
           </div>

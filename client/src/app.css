@@ -10,6 +10,10 @@
   box-shadow: none !important;
 }
 
+a {
+  color: #ff6600 !important;
+}
+
 li {
   list-style: none;
 }
@@ -142,9 +146,46 @@ img {
   width: 100%;
 }
 
+.orange {
+  color: #ff6600 !important;
+}
+
+.titleCard {
+  width: 50% !important;
+  font-size: 22px !important;
+  border-bottom: 1px solid #ced4da !important;
+}
+
+.titleAuthor {
+  padding-left: 19px !important;
+  padding-top: 2vh !important;
+}
+
+.card-header {
+  background-color: white !important;
+  border-top: none !important;
+}
+
+
+.card {
+  margin-top: 2vh !important;
+  padding-top: 2vh !important;
+  border-radius: 0px !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: 2px solid #ff6600 !important;
+}
+
 .titleHeader {
   font-size: 32px !important;
   border-bottom: 1px solid #ced4da !important;
+  padding-bottom: 2vh !important;
+}
+
+.titleTitle {
+  font-size: 32px !important;
+  color: #ff6600 !important;
 }
 
 .titleSignup {
@@ -166,8 +207,8 @@ img {
 }
 
 .row {
-  text-align: beginning;
-  align-items: center;
+  text-align: start;
+  align-items: start;
 }
 
 .col {

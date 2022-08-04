@@ -16,13 +16,29 @@ const Content = () => {
   return (
     <Container className="main">
       <Row className="row">
-        <Col xs={12} className="col">
+        <Col xs={1} className="col"></Col>
+        <Col xs={6} className="col">
           {loading ? (
             <h2>Loading...</h2>
           ) : (<Feed
             workouts={workouts}
-            title="Activity Feed"
+            title="Activity Feed:"
           />)}
+        </Col>
+        <Col xs={1} className="col"></Col>
+        <Col xs={4} className="col">
+          <Row className="row">
+            <Col>
+              <h1 className="titleHeader orange">Friends:</h1>
+              <p>Content coming soon... </p>
+            </Col>
+          </Row>
+          <Row className="row">
+            <Col>
+              <h1 className="titleHeader orange">Popular Today:</h1>
+              <p>Content coming soon... </p>
+            </Col>
+          </Row>
         </Col>
       </Row>
     </Container>

@@ -18,10 +18,15 @@ function Dashboard() {
             <h2>Loading...</h2>
           ) : (<Feed
             workouts={workouts}
-            title="Activity Feed"
+            title="Your Workouts:"
           />)}
         </Col>
-        <Col xs={5} className="col">2 of 2</Col>
+        <Col xs={5} className="col">
+          <h1 className="titleHeader orange">Need inspiration?</h1>
+          <p>Coming soon to Tr&auml;na</p>
+          <p>A list of pre described workouts curated expecially to get you up and working out. </p>
+          <p><a href="#">View Workouts</a></p>
+        </Col>
       </Row>
     </Container>
   )
