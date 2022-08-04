@@ -4,14 +4,16 @@
 ![Apollo](https://img.shields.io/badge/node-Apollo-orange)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+## TR&Auml;NA is deployed *[here](https://trana-application.herokuapp.com/dashboard)
+
 ---
 ## Table of contents
 * [Description](#Description)
 * [Functionality](#Functionality)
-* [Installation](Installation)
-* [Technologies Used](Technologies Used)
-* [Credits](Credits)
-* [Questions](Questions)
+* [Installation](#Installation)
+* [Technologies](#Technologies)
+* [Credits](#Credits)
+* [Questions](#Questions)
 ---
 ## Description
 Tr&auml;na is a social media style post and read application built for people who exercise from beginner to advanced skill level. What tr&auml;na brings to the table is the ability to log you workouts with a title and description, but no likes or comments feature, IT'S ALL ABOUT THE WORKOUT. 
@@ -38,7 +40,7 @@ Once a user has posted their own workouts, they will be filtered onto their dash
 After forking this project, run the `npm install` command in the rooy folder, this will install all needed packages. Next run `npm run seed` to access some dummy data to get coding!
 
 ---
-## Technologies Used 
+## Technologies
 Tr&auml;na is built with a MERNG tech stack meaning it utilises a MongoDB/Mongoose ODM for the database, Express.JS for the server handling, React.JS for the front end, and Node.JS as a web framework.
 
 ---
