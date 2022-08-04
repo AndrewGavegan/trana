@@ -43,6 +43,8 @@ After forking this project, run the `npm install` command in the rooy folder, th
 ## Technologies
 Tr&auml;na is built with a MERNG tech stack meaning it utilises a MongoDB/Mongoose ODM for the database, Express.JS for the server handling, React.JS for the front end, and Node.JS as a web framework. Finally, a MERNG stack utilises GraphQL as the query language and server side runtime.
 
+Node packages used in this project are `concurrently`, `apollo-server-express`, `bcrypt`,  `dotenv`, `jsonwebtoken`, `nodemon`, `@apollo/client`, `react-bootstrap`, `react-router-dom`, `react-dom`, `react-scripts` and `web-vitals`.
+
 ---
 ## Credits 
 This project was created by myself with assistance from teachers and resources at the University of Sydney Full Stack Flex Online Part Time Bootcamp.
