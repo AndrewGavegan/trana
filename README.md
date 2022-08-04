@@ -9,7 +9,7 @@
 * [Description](#Description)
 * [Functionality](#Functionality)
 * [Installation](Installation)
-* [Useage](Usage)
+* [Technologies Used](Technologies Used)
 * [Credits](Credits)
 * [Questions](Questions)
 ---
@@ -22,9 +22,11 @@ Tr&auml;na will continue to be developed into a more refined fully functional ap
 Tr&auml;na uses a modal to create a new workout to post to the global activity feed. Once tr&auml;na gains more users, a friends or followers functionality will be implemented to only show those respective users in the activity feed.
 
 Modal:
+
 ![Screenshot](./client/src/components/images/Capture.PNG)
 
 Global activity feed:
+
 ![Screenshot1](./client/src/components/images/Capture1.PNG)
 
 Once a user has posted their own workouts, they will be filtered onto their dashboard, where they can view the journaled workouts as they please. This is especially important when trying to progress in your workouts, remembering the wieght, sets or reps you did last week for example, just got a whole lot easier.
@@ -33,15 +35,15 @@ Once a user has posted their own workouts, they will be filtered onto their dash
 
 ---
 ## Installation
-
+After forking this project, run the `npm install` command in the rooy folder, this will install all needed packages. Next run `npm run seed` to access some dummy data to get coding!
 
 ---
-## Usage 
-
+## Technologies Used 
+Tr&auml;na is built with a MERNG tech stack meaning it utilises a MongoDB/Mongoose ODM for the database, Express.JS for the server handling, React.JS for the front end, and Node.JS as a web framework.
 
 ---
 ## Credits 
-
+This project was created by myself with assistance from teachers and resources at the University of Sydney Full Stack Flex Online Part Time Bootcamp.
 
 ---
 ## Questions
