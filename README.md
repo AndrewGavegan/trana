@@ -4,7 +4,7 @@
 ![Apollo](https://img.shields.io/badge/node-Apollo-orange)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## TR&Auml;NA is deployed [here](https://trana-application.herokuapp.com/dashboard)
+## TR&Auml;NA is deployed [here](https://trana-application.herokuapp.com)
 
 ---
 ## Table of contents
